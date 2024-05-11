@@ -3,7 +3,11 @@
 
 ## Introduction
 
-In this project, I build a mini honeynet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment for 24 hours, apply some security controls to harden the environment, measure metrics for another 24 hours, then show the results below. The metrics we will show are:
+In today's digitally connected landscape, cybersecurity is paramount. As technology advances, so too do the methods and sophistication of cyber threats. To confront these challenges head-on, I embarked on a comprehensive cybersecurity project leveraging Azure's robust infrastructure. The primary objective was to construct a miniature honeynet within Azure, comprising three distinct virtual machines: an Attack-VM, a Linux-VM, and a Windows VM. By deliberately exposing the Linux and Windows VMs to potential attacks, I aimed to simulate real-world cyber threats and analyze their impact.
+
+## Project Overview
+
+My project entailed orchestrating a series of strategic steps to fortify the Azure environment against potential cyber intrusions. Initially, I configured the virtual machines with minimal security measures, deliberately leaving them vulnerable to external threats. Subsequently, I meticulously monitored and logged various activities within the environment, utilizing Azure's Log Analytics workspace to consolidate data streams.
 
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
