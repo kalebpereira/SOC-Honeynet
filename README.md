@@ -82,6 +82,11 @@ Stop Time	2024-05-11 12:24:50
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 21
 
+## % Reduction in Incidents/Alerts After Hardening/Security Controls 
+
+<img width="524" alt="Screenshot 2024-05-11 at 4 20 15 PM" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/a7224e56-c73a-46fb-a38d-4e0afb1a9f4d">
+
+
 ## Key Components and Actions 
 
 Virtual Machine Setup: Within the Microsoft Azure environment, I provisioned three distinct virtual machines: an Attack-VM, a Linux-VM, and a Windows VM. These machines were strategically deployed to emulate various components of a network, facilitating the simulation of real-world cyber threats.
