@@ -21,24 +21,27 @@ My project entailed orchestrating a series of strategic steps to fortify the Azu
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
 
-The architecture of the mini honeynet in Azure consists of the following components:
+In the refined architecture post-hardening, a robust framework was established to fortify the Azure-based honeynet against potential cyber intrusions. The components of the enhanced architecture included:
 
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
+- Virtual Network (VNet): The Virtual Network served as the foundational framework for hosting the interconnected resources of the honeynet. Through meticulous configuration and segmentation, network traffic was carefully controlled to enhance security posture.
+- Network Security Group (NSG): Following the implementation of stringent security measures, the NSG underwent significant hardening. Traffic was meticulously filtered, with access restricted to essential entities, notably excluding unauthorized sources and potential threat vectors.
+- Virtual Machines (2 windows, 1 linux): The virtual machines within the honeynet underwent comprehensive security enhancements. Both Windows and Linux-based systems were shielded behind fortified Network Security Groups and reinforced with robust built-in firewalls.
+- Log Analytics Workspace: The Log Analytics Workspace continued to serve as the central repository for logging and monitoring activities within the honeynet. Enhanced security protocols ensured that all pertinent log data was meticulously analyzed to detect and respond to potential security incidents swiftly.
+- Azure Key Vault: To safeguard critical cryptographic keys and secrets, Azure Key Vault played a pivotal role in the fortified architecture. Access controls were rigorously enforced to prevent unauthorized access and ensure the integrity of sensitive information.
+- Azure Storage Account: The Azure Storage Account, an essential component of the honeynet architecture, was fortified with stringent access controls and encryption mechanisms. Data-at-rest and data-in-transit were safeguarded to mitigate potential data breaches.
+- Microsoft Sentinel: As the primary tool for threat detection and incident response, Microsoft Sentinel assumed an elevated role in the fortified architecture. Advanced analytics and machine learning capabilities were leveraged to proactively identify and mitigate emerging cyber threats.
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+All resources were initially delivered with wide-open configurations during the "BEFORE" metrics phase, making them vulnerable to possible cyber attacks.  In the "AFTER" metrics phase. Network security groups were strengthened to prevent access from any non-essential source, with carefully defined exceptions that allowed access only from sources that were permitted. In addition, strict firewall regulations were put into place and resources were hidden behind Private Endpoints , which significantly reduced the possibility of unwanted access and strengthened the honeynet's overall security posture. For example, one of these Firewall regulations was limiting access through whitelisting the VMs to only my local IP address.
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+## Number of Incidents Before Hardening / Security Controls 
+
+<img width="1440" alt="# of Incidents (Before)" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/773a3b19-ee4a-4d4e-b849-06a51733ed9a">
+
 
 ## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/G1YgZt6.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/ESr9Dlv.png)<br>
+<img width="1440" alt="nsg-malicious-allowed-in (before)" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/f4c127f5-b55c-41d6-a522-3c2e29d37c61">
+<img width="1440" alt="linux-ssh-auth-fail (before)" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/42229ba1-3415-452e-831d-07f988f4c2b6">
+<img width="1440" alt="windows-rdp-auth-fail (before)" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/7c1d1f8e-e369-4dfa-83c6-a8c6cb66750b">
 
 ## Metrics Before Hardening / Security Controls
 
@@ -54,9 +57,16 @@ Stop Time 2024-05-08 2:19:55
 | SecurityIncident         | 410
 | AzureNetworkAnalytics_CL | 2196
 
-## Attack Maps Before Hardening / Security Controls
+## Number of Incidents After Hardening / Security Controls 
+
+<img width="1440" alt="# of Incidents (after)" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/b17c9fb3-2629-4b70-a0f1-0a06f9674922">
+
+## Attack Maps After Hardening / Security Controls
 
 ```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
+
+<img width="562" alt="Screenshot 2024-05-11 at 3 41 30 PM" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/db025ecf-653d-41f7-91cd-1ba3542b457a">
+
 
 ## Metrics After Hardening / Security Controls
 
@@ -72,8 +82,18 @@ Stop Time	2024-05-11 12:24:50
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 21
 
+## Key Components and Actions 
+
+Virtual Machine Setup: Within the Microsoft Azure environment, I provisioned three distinct virtual machines: an Attack-VM, a Linux-VM, and a Windows VM. These machines were strategically deployed to emulate various components of a network, facilitating the simulation of real-world cyber threats.
+
+Security Configuration: To replicate authentic cybersecurity scenarios, deliberate measures were taken to disable Network Security Groups (NSGs) and firewalls within the Linux and Windows VMs' operating systems. This deliberate vulnerability enabled comprehensive analysis of potential security breaches and facilitated the collection of pertinent log data.
+
+Log Analysis and Incident Response: Leveraging the robust capabilities of Azure's Log Analytics workspace and Microsoft Sentinel, I meticulously analyzed the generated logs from the vulnerable VMs. Adhering to established industry standards, including NIST 800-53 guidelines, I promptly identified and responded to potential security incidents, initiating remediation procedures to mitigate risks effectively.
+
+Security Metrics and Evaluation: Over a meticulously observed 48-hour period, I meticulously measured and evaluated various security metrics. These metrics encompassed SecurityEvent (Windows Event Logs), Syslog (Linux Event Logs), SecurityAlert (Log Analytics Alerts Triggered), SecurityIncident (Incidents created by Sentinel), and AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet). These metrics provided critical insights into the effectiveness of the implemented security measures and served as benchmarks for evaluating system hardening efforts.
+
 ## Conclusion
 
-In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
+This project underscores the critical importance of proactive cybersecurity measures in safeguarding digital assets within cloud environments, exemplified through the construction and analysis of a miniature honeynet in Microsoft Azure. By systematically orchestrating the integration of log sources into a Log Analytics workspace and leveraging Microsoft Sentinel for alerting and incident response, I successfully demonstrated the tangible benefits of implementing robust security controls.
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
+Moreover, the observed reduction in security events and incidents following the implementation of security measures highlights the efficacy of proactive cybersecurity strategies. Moving forward, the insights gained from this project will serve as a foundation for enhancing cybersecurity practices, fortifying Azure environments, and effectively mitigating evolving cyber threats.
