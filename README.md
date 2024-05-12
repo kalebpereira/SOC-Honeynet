@@ -1,5 +1,6 @@
 # SOC-Honeynet (Live Traffic)
-![Cloud Honeynet / SOC](https://i.imgur.com/ZWxe03e.jpg)
+
+<img width="497" alt="Screenshot 2024-05-12 at 11 04 07 AM" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/d8299877-cdab-4bb7-a6b2-d3f1c534f54c">
 
 ## Introduction
 
