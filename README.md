@@ -17,10 +17,10 @@ My project entailed orchestrating a series of strategic steps to fortify the Azu
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
 
 ## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
+<img width="809" alt="Screenshot 2024-05-12 at 11 18 13 AM" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/d7ba0ae7-6516-4514-9dcd-415224d82706">
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
+<img width="693" alt="Screenshot 2024-05-12 at 11 29 22 AM" src="https://github.com/kalebpereira/SOC-Honeynet/assets/169097865/5deb4f9a-e5a5-46de-8450-4faa3b87abee">
 
 In the refined architecture post-hardening, a robust framework was established to fortify the Azure-based honeynet against potential cyber intrusions. The components of the enhanced architecture included:
 
