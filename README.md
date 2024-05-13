@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In today's digitally connected landscape, cybersecurity is paramount. As technology advances, so too do the methods and sophistication of cyber threats. To confront these challenges head-on, I embarked on a comprehensive cybersecurity project leveraging Azure's robust infrastructure. The primary objective was to construct a miniature honeynet within Azure, comprising three distinct virtual machines: an Attack-VM, a Linux-VM, and a Windows VM. By deliberately exposing the Linux and Windows VMs to potential attacks, I aimed to simulate real-world cyber threats and analyze their impact.
+In today's digitally connected landscape, cybersecurity is paramount. As technology advances, so too do the methods and sophistication of cyber threats. To confront these challenges head-on, I embarked on a comprehensive cybersecurity project leveraging Azure's robust infrastructure. The primary objective was to construct a miniature honeynet within Azure, comprising three distinct virtual machines: an Attack-VM (to personally stimulate attacks), a Linux-VM, and a Windows VM. By deliberately exposing the Linux and Windows VMs to potential attacks, I aimed to simulate real-world cyber threats and analyze their impact.
 
 ## Project Overview
 
